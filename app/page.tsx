@@ -2,6 +2,8 @@ import React from 'react'
 import { Text } from 'thon-ui'
 import { Post } from '../src/domains/posts/models/post'
 import { format } from 'date-fns'
+import Link from 'next/link'
+import Markdown from '../src/shared/components/markdown'
 
 const baseURL = 'https://www.tabnews.com.br/api/v1'
 const postsEndpoint = '/contents/guscsales'
@@ -59,6 +61,39 @@ export default async function Home() {
       >
         {lastPost.title}
       </Text>
+
+      <div className="relative">
+        <div
+          className={`
+          w-[calc(100%+5rem)] h-[5.5rem]
+          absolute bottom-0 -left-10
+          bg-[linear-gradient(180deg,rgba(249,250,251,0)_0%,#F9FAFB_100%)]
+        `}
+        />
+        <Markdown
+          value={lastPost.body}
+          className="h-[59vh] overflow-hidden mb-6"
+        />
+      </div>
+
+      <div className="flex items-center justify-end mt-9 mb-4">
+        <Link href="/blog" className="py-2 px-3">
+          <Text
+            variant="xs"
+            className="text-blue-400 hover:text-blue-600 transition-all duration-200 ease-in-out"
+          >
+            Ver Outros Posts
+          </Text>
+        </Link>
+        <Link
+          href={`/blog/${lastPost.slug}`}
+          className="py-2 px-3 bg-gray-100 hover:bg-gray-200 transition-all duration-200 ease-in-out rounded"
+        >
+          <Text variant="xs" className="font-bold text-gray-800">
+            Continuar Lendo
+          </Text>
+        </Link>
+      </div>
     </article>
   )
 }
