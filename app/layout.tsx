@@ -1,5 +1,6 @@
 import React from 'react'
 import 'thon-ui/core/base.css'
+import MainFooter from '../src/shared/components/main-footer'
 import MainHeader from '../src/shared/components/main-header'
 
 type Props = {
@@ -28,7 +29,10 @@ export default function RootLayout({ children }: Props) {
       </head>
       <body className="lg:grid lg:grid-flow-col xl:grid-flow-col xl:pl-[34.25rem] lg:min-h-[96vh]">
         <MainHeader />
-        {children}
+        <main className="p-10">
+          {children}
+          <MainFooter />
+        </main>
       </body>
     </html>
   )

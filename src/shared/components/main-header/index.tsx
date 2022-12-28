@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Text } from 'thon-ui'
+import profilePicture from './assets/perfil.jpg'
 
 function NavigatorItem({
   href,
@@ -31,6 +32,12 @@ export default function MainHeader() {
       bg-gray-100`}
     >
       <div className="flex gap-3 items-center">
+        <Image
+          src={profilePicture}
+          alt="Foto de Perfil do Gustavo Sales"
+          className="w-[5.5rem] h-[5.5rem]"
+          style={{ borderRadius: '50%' }}
+        />
         <div>
           <Text as="h1" variant="2xl lg:3xl" className="text-gray-800">
             Adriano Alves
