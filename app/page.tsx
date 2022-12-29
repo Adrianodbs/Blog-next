@@ -14,7 +14,7 @@ async function getLastPost() {
   let posts = (await postsResponse.json()) as Post[]
 
   posts = posts
-    .filter(post => post.title)
+    .filter(post => !post['parent_id'])
     .map(post => ({
       ...post,
       created_at: new Date(post.created_at)

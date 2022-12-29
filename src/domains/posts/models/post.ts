@@ -3,4 +3,5 @@ export interface Post {
   title: string;
   created_at: Date;
   body: string;
+  parent_id?: string
 }
